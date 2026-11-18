@@ -1,0 +1,3 @@
+destinations='[{"name":"D4L","url":"https://D4L.dest","proxyHost":"http://127.0.0.1","proxyPort":"8887"}]'
+cds_requires='{"D4L":{"impl":"@sap/cds/srv/remote-service.js","external":true,"kind":"odata-v2","model":"srv/external/D4L","credentials":{"destination":"D4L","path":"/sap/opu/odata/sap/API_JOURNALENTRYITEMBASIC_SRV"}},"auth":{"strategy":"dummy","kind":"dummy"},"messaging":{"kind":"local-messaging"}}'
+VCAP_SERVICES='{}'

@@ -1,0 +1,49 @@
+
+{
+  "MessageHeader": {
+    "CreationDateTime": "2026-10-26T08:00:00Z",
+    "TestDataIndicator": true
+  },
+  "JournalEntryCreateRequest": [
+    {
+      "MessageHeader": {
+        "CreationDateTime": "2026-10-26T08:00:00Z",
+        "TestDataIndicator": true
+      },
+      "JournalEntry": {
+        "OriginalReferenceDocumentType": "BKPFF",
+        "BusinessTransactionType": "RFBU",
+        "AccountingDocumentType": "SA",
+        "CreatedByUser": "CAPM_USER",
+        "CompanyCode": "1000",
+        "DocumentDate": "2026-10-26",
+        "PostingDate": "2026-10-26",
+        "DocumentHeaderText": "CAP SOAP test",
+        "Item": [
+          {
+            "GLAccount": "0000400000",
+            "AmountInTransactionCurrency": {
+              "_": "100.00",
+              "$attributes": {
+                "currencyCode": "INR"
+              }
+            },
+            "DebitCreditCode": "S",
+            "DocumentItemText": "Test debit"
+          },
+          {
+            "GLAccount": "0000500000",
+            "AmountInTransactionCurrency": {
+              "_": "-100.00",
+              "$attributes": {
+                "currencyCode": "INR"
+              }
+            },
+            "DebitCreditCode": "H",
+            "DocumentItemText": "Test credit"
+          }
+        ]
+      }
+    }
+  ]
+}

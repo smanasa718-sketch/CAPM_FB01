@@ -1,0 +1,156 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "fijournalentries",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.32.0",
+      "toolsId": "4dc21ed4-58bb-4694-85d5-8754ab49682e"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/service/ZFI_ODATAService/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fijournalentries.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "A_JournalEntryItemBasicList",
+          "target": "A_JournalEntryItemBasicList"
+        },
+        {
+          "pattern": "A_JournalEntryItemBasic({key}):?query:",
+          "name": "A_JournalEntryItemBasicObjectPage",
+          "target": "A_JournalEntryItemBasicObjectPage"
+        }
+      ],
+      "targets": {
+        "A_JournalEntryItemBasicList": {
+          "type": "Component",
+          "id": "A_JournalEntryItemBasicList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/A_JournalEntryItemBasic",
+              "variantManagement": "Page",
+              "content": {
+                "header": {
+                "actions": {
+                "ShowJobResults": {
+                "text": "Get Latest Job Result",
+                "press": "fijournalentries.ext.JobResults.onPress"
+                }
+              }
+            }
+}           ,
+              "navigation": {
+                "A_JournalEntryItemBasic": {
+                  "detail": {
+                    "route": "A_JournalEntryItemBasicObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "A_JournalEntryItemBasicObjectPage": {
+          "type": "Component",
+          "id": "A_JournalEntryItemBasicObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/A_JournalEntryItemBasic"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

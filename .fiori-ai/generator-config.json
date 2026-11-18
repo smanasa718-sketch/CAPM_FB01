@@ -1,0 +1,32 @@
+{
+    "version": "0.2",
+    "floorplan": "FE_LROP",
+    "project": {
+        "name": "fi-journal-entries",
+        "targetFolder": "/home/user/projects/ZFI_ODATA",
+        "title": "FI Journal Entries",
+        "description": "Read-only list report for FI journal entry items with filters for Company Code, Fiscal Year, and Accounting Document.",
+        "ui5Version": "1.136.0",
+        "localUI5Version": "1.82.2",
+        "sapux": true
+    },
+    "service": {
+        "servicePath": "/service/ZFI_ODATAService/",
+        "capService": {
+            "projectPath": "/home/user/projects/ZFI_ODATA",
+            "serviceName": "ZFI_ODATAService",
+            "serviceCdsPath": "srv/service.cds"
+        }
+    },
+    "entityConfig": {
+        "mainEntity": {
+            "entityName": "A_JournalEntryItemBasic"
+        },
+        "generateLROPAnnotations": true
+    },
+    "projectTemplateType": "LIST_REPORT_OBJECT_PAGE",
+    "telemetryData": {
+        "generationSourceName": "AI Headless",
+        "generationSourceVersion": "1.32.1"
+    }
+}
